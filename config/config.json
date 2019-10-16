@@ -1,16 +1,16 @@
 {
   "development": {
-    "username": "root",
-    "password": "rootroot",
-    "database": "snob_talkDB",
-    "host": "localhost",
+    "username": "t38jk9c5ygk1rnmj",
+    "password": "q8aomsanfljgd6f4",
+    "database": "bfaf87goah9zvqru",
+    "host": "o61qijqeuqnj9chh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "rootroot",
-    "database": "testdb",
-    "host": "localhost",
+    "username": "t38jk9c5ygk1rnmj",
+    "password": "q8aomsanfljgd6f4",
+    "database": "bfaf87goah9zvqru",
+    "host": "o61qijqeuqnj9chh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "logging": false
   },
