@@ -1,1 +1,21 @@
+footer {
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid black;
 
+}
+
+nav {
+    border-bottom: 1px solid black;
+}
+
+.carousel-item {
+    height: 350px;
+
+}
+
+.searchBar {
+    border: 1px, solid blue;
+    margin-top: 0.5%;
+
+}
