@@ -1,4 +1,4 @@
-body {
+.container1 {
   background-image: url("../images/beanstalk-dark.png");
 
 }
@@ -7,7 +7,6 @@ footer {
   bottom: 0;
   height:50px;
   width: 100%;
-  border-top: 1px solid black;
 
 }
 
