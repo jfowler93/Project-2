@@ -28,16 +28,17 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
-  app.get("/movie/:id", function(req, res) {
+  app.get("/movie/:title", function(req, res) {
+    let title = req.params.title.split("+").join(" ")
     db.movies.findOne({
       where: {
-        id: req.params.id
+        title: title
       }
     }).then(function(movie){
       console.log(movie.dataValues)
       db.discussion.findAll({
         where: {
-          art_id: req.params.id,
+          art_id: movie.dataValues.id,
           art_category: "Movies"
         }
       }).then(function(comments){
