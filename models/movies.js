@@ -1,6 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Movies = sequelize.define("movies", {
-        name: DataTypes.STRING,
+        title: DataTypes.STRING,
+        genre: DataTypes.TEXT
     });
     return Movies;
 };
