@@ -9,4 +9,4 @@ module.exports = function(sequelize, DataTypes) {
     return Discussion;
 };
 
-Discussion.sync();
+//Discussion.sync();
