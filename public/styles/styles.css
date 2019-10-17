@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(49, 47, 47);
+  background-image: url("../images/beanstalk-dark.png");
 
 }
 
@@ -16,9 +16,14 @@ nav {
   height: 75px;
 }
 
-.searchBar {
+/* .searchBar {
   border: 1px, solid blue;
   margin-top: 0.5%;
+
+} */
+.team-section{
+background-color: rgba(0, 255, 255, 0.479);
+
 
 }
 
@@ -29,3 +34,7 @@ nav {
   align-content: center;
 }
 
+#avatar {
+  width: 250px;
+  height: 250px;
+}
