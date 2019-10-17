@@ -1,4 +1,5 @@
 var db = require("../models");
+var path = require("path")
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -26,15 +27,15 @@ module.exports = function (app) {
   });
 
   app.get("/movie/:id", function(req, res) {
-    db.Movie.findOne({
+    db.movies.findOne({
       where: {
         id: req.params.id
       }
     }).then(function(movie){
-      db.Discussion.findAll({
+      db.discussion.findAll({
         where: {
           art_id: req.params.id,
-          art_category: "movie"
+          art_category: "Movies"
         }
       }).then(function(comments){
         res.render("comments", {
