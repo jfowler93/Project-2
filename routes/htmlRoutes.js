@@ -26,7 +26,23 @@ module.exports = function (app) {
   });
 
   app.get("/movie/:id", function(req, res) {
-    
+    db.Movie.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(movie){
+      db.Discussion.findAll({
+        where: {
+          art_id: req.params.id,
+          art_category: "movie"
+        }
+      }).then(function(comments){
+        res.render("comments", {
+          movie: movie,
+          comments: comments
+        })
+      })
+    })
   })
 
 };
