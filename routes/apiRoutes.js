@@ -50,10 +50,11 @@ module.exports = function(app) {
     }
   });
 
+  //Search function for movies that might match the search
   app.get("/api/movie-data/:movie", function(req, res){
     var movie = req.params.movie.split("+").join(" ")
     console.log(movie)
-    db.Movies.find({
+    db.movies.find({
       where: {
         title: movie
       }
