@@ -34,6 +34,7 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(movie){
+      console.log(movie.dataValues)
       db.discussion.findAll({
         where: {
           art_id: req.params.id,
@@ -41,7 +42,47 @@ module.exports = function(app) {
         }
       }).then(function(comments){
         res.render("comments", {
-          movie: movie,
+          content: movie.dataValues,
+          comments: comments
+        })
+      })
+    })
+  })
+
+  app.get("/music/:id", function(req, res) {
+    db.music.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(music){
+      db.discussion.findAll({
+        where: {
+          art_id: req.params.id,
+          art_category: "Music"
+        }
+      }).then(function(comments){
+        res.render("comments", {
+          content: music.dataValues,
+          comments: comments
+        })
+      })
+    })
+  })
+
+  app.get("/tv/:id", function(req, res) {
+    db.tv.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(tv){
+      db.discussion.findAll({
+        where: {
+          art_id: req.params.id,
+          art_category: "TV"
+        }
+      }).then(function(comments){
+        res.render("comments", {
+          content: tv.dataValues,
           comments: comments
         })
       })
