@@ -1,45 +1,50 @@
 var db = require("../models");
 var passport = require("../config/passport");
-var path = require("path")
-var axios = require("axios")
+var path = require("path");
+var axios = require("axios");
+var Sequelize = require("sequelize");
+
+let Op = Sequelize.Op;
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
+
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+  console.log("routes fire")
+  app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post("/api/signup", function(req, res) {
+  app.post("/api/signup", function (req, res) {
     console.log(req.body)
     console.log(req.body.password)
     db.User.create({
       email: req.body.email,
       password: req.body.password
     })
-      .then(function() {
+      .then(function () {
         res.redirect(307, "/api/login");
       })
-      .catch(function(err) {
+      .catch(function (err) {
         res.status(401).json(err);
       });
   });
 
   // Route for logging user out
-  app.get("/logout", function(req, res) {
+  app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
   });
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function(req, res) {
+  app.get("/api/user_data", function (req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -54,19 +59,26 @@ module.exports = function(app) {
   });
 
   //Search function for movies that might match the search
-  app.get("/api/movie/:title", function(req, res){
-    var title = req.params.title.split("+").join(" ")
+
+  app.get("/api/movie/:title", function(req, res) {
+         //  res.send("parameter: " + req.params.title)
+            console.log("route hit");
+    var movie = req.params.title
+
     console.log(movie)
-    db.movies.find({
+    db.movies.findAll({
       where: {
-        title: title
+
+          title: { [Op.like]: "%" + movie + "%"}
+
       }
-    }).then(function(data){
+    }).then(function (data) {
+      res.json(data);
       console.log(data)
     })
   })
 
-  app.post("/api/comment", isAuthenticated, function(req, res){
+  /*p.post("/api/comment", isAuthenticated, function (req, res) {
     db.discussion.create({
       username: req.body.username,
       text: req.body.text,
@@ -76,5 +88,5 @@ module.exports = function(app) {
     }).then(function(data){
       res.json({is_successful: true})
     })
-  })
+  })*/
 };
