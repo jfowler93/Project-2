@@ -52,12 +52,18 @@ module.exports = function (app) {
 
 
   app.get("/movie/:id", function (req, res) {
+
     let title = req.params.title.split(" ").join("")
 
          console.log(title);
+
+    let id = req.params.title.split(" ").join("")
+
+         console.log(id);
+    
     db.movies.findOne({
       where: {
-        title: { [Op.like]: "%" + movie + "%"}
+        id: id
       }
     }).then(function (movie) {
       console.log(movie.dataValues)
