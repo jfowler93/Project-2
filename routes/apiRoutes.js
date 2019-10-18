@@ -3,6 +3,9 @@ var passport = require("../config/passport");
 var path = require("path")
 var axios = require("axios")
 
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -51,15 +54,27 @@ module.exports = function(app) {
   });
 
   //Search function for movies that might match the search
-  app.get("/api/movie-data/:movie", function(req, res){
-    var movie = req.params.movie.split("+").join(" ")
+  app.get("/api/movie/:title", function(req, res){
+    var title = req.params.title.split("+").join(" ")
     console.log(movie)
     db.movies.find({
       where: {
-        title: movie
+        title: title
       }
     }).then(function(data){
       console.log(data)
+    })
+  })
+
+  app.post("/api/comment", isAuthenticated, function(req, res){
+    db.discussion.create({
+      username: req.body.username,
+      text: req.body.text,
+      parent_id: req.body.parent_id,
+      art_id: req.body.art_id,
+      art_category: req.body.art_category
+    }).then(function(data){
+      res.json({is_successful: true})
     })
   })
 };

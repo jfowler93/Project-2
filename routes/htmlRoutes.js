@@ -51,7 +51,8 @@ module.exports = function (app) {
   });
 
   app.get("/movie/:title", function (req, res) {
-    let title = req.params.title.split("+").join(" ")
+    let title = req.params.title.split(" ").join("").toLowerCase().split("(")
+         console.log(title);
     db.movies.findOne({
       where: {
         title: title
@@ -64,7 +65,7 @@ module.exports = function (app) {
           art_category: "Movies"
         }
       }).then(function (comments) {
-        res.render("comments", {
+        res.render("moviesLink", {
           content: movie.dataValues,
           comments: comments
         })
