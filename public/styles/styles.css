@@ -3,7 +3,11 @@ body {
 
 }
 
-
+.page-footer {
+  left:0;
+  width: 100%;
+  bottom: 0;
+}
 
 h3 {
   font-family: 'Permanent Marker', cursive;
