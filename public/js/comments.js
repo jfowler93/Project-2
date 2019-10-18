@@ -41,28 +41,28 @@ $("#submit-button").on("click", function (event) {
 });
 
 // When the page loads, grab all of our chirps
-$.get("/api/all", function (data) {
+// $.get("/api/all", function (data) {
 
-  if (data.length !== 0) {
+//   if (data.length !== 0) {
 
-    for (var i = 0; i < data.length; i++) {
-
-      var row = $("<div>");
-      row.attr("id", data.id)
-      row.addClass("comment");
-
-      row.append("<p>" + data[i].author + " commented:  </p>");
-      row.append("<p>" + data[i].body + "</p>");
-      row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+//     for (var i = 0; i < data.length; i++) {
 
 
-      $("#comment-area").prepend(row);
+//       var row = $("<div>");
+//       row.addClass("comment");
 
-    }
+//       row.append("<p>" + data[i].author + " commented:  </p>");
+//       row.append("<p>" + data[i].body + "</p>");
+//       row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
 
-  }
 
-});
+//       $("#comment-area").prepend(row);
+
+//     }
+
+//   }
+
+// });
 
 $("#reply-button").on("click", function (event) {
   event.preventDefault();
