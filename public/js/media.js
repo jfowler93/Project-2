@@ -12,20 +12,21 @@ $("#submitBtn").on("click", function (e) {
 
         if (data.length !== 0) {
 
-            // for (var i = 0; i < first.length; i++) {
+            for (var i = 0; i < data.length; i++) {
 
-            var row = $("<div>");
+                var row = $("<div>");
 
-            row.append("<h4>" + first.title + "</h4>");
-            row.append("<p>" + first.genre + " </p>");
+                row.append("<h4>" + data.title + "</h4>");
+                row.append("<p>" + data.genre + " </p>");
 
 
 
-            $(".mov").prepend(row);
+
+                $(".mov").prepend(row);
+
+            }
 
         }
-
-        // }
 
     });
 });
