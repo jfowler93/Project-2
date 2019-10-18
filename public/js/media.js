@@ -16,7 +16,7 @@ $("#submitBtn").on("click", function (e) {
 
                 var movieDiv = $("<div class='jumbotron text-center hoverable p-4' id='movie-jumb'>");
 
-                var row = $("<div>");
+                var id = data[i].id;
 
                 var title = $("<h4>" + data[i].title + "</h4>");
                 var genre = $("<p>" + data[i].genre + " </p>");
