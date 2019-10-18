@@ -1,7 +1,7 @@
 /* global moment */
 var replyButton = `<button id="reply-button" class="btn btn-lg pull-right">Reply</button>`;
 // When user clicks add-btn
-$("#submit-button").on("click", function(event) {
+$("#submit-button").on("click", function (event) {
   event.preventDefault();
 
   // Make a newChirp object
@@ -16,9 +16,9 @@ $("#submit-button").on("click", function(event) {
   // Send an AJAX POST-request with jQuery
   $.post("/api/new", newComment)
     // On success, run the following code
-    .then(function() {
+    .then(function () {
 
-      
+
 
       var row = $("<div>");
       row.addClass("comment");
@@ -38,7 +38,7 @@ $("#submit-button").on("click", function(event) {
 });
 
 // When the page loads, grab all of our chirps
-$.get("/api/all", function(data) {
+$.get("/api/all", function (data) {
 
   if (data.length !== 0) {
 
@@ -50,7 +50,7 @@ $.get("/api/all", function(data) {
       row.append("<p>" + data[i].author + " commented:  </p>");
       row.append("<p>" + data[i].body + "</p>");
       row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
-      
+
 
       $("#comment-area").prepend(row);
 
@@ -60,24 +60,26 @@ $.get("/api/all", function(data) {
 
 });
 
-$("#reply-button").on("click", function(event){
+$("#reply-button").on("click", function (event) {
   event.preventDefault();
 
   var replyText = `<textarea class="form-control" rows="3" id="chirp-box" placeholder="Enter Chirp Here!"></textarea>
   <button id="chirp-submit" class="btn btn-lg pull-right">Submit!</button>`;
 
   $.post("/api/new", newReply)
-  // On success, run the following code
-  .then(function() {
+    // On success, run the following code
+    .then(function () {
 
-    
 
-    var row = $("<div>");
 
-    row.append(replyText)
+      var row = $("<div>");
 
-    $("#chirp-area").prepend(row);
+      row.append(replyText)
 
-  });
-  
+      $("#chirp-area").prepend(row);
+
+    });
+
 })
+
+
