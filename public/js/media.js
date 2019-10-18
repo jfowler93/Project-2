@@ -12,20 +12,25 @@ $("#submitBtn").on("click", function (e) {
 
         if (data.length !== 0) {
 
-            // for (var i = 0; i < first.length; i++) {
+            for (var i = 0; i < data.length; i++) {
 
-            var row = $("<div>");
+                var movieDiv = $("<div class='jumbotron text-center hoverable p-4' id='movie-jumb'>");
 
-            row.append("<h4>" + first.title + "</h4>");
-            row.append("<p>" + first.genre + " </p>");
+                var row = $("<div>");
+
+                var title = $("<h4>" + data[i].title + "</h4>");
+                var genre = $("<p>" + data[i].genre + " </p>");
+
+                movieDiv.append(title, genre);
+                // row.append("<p>" + data[i].genre + " </p>");
 
 
 
-            $(".mov").prepend(row);
+                $(".movieResults").prepend(movieDiv);
+
+            }
 
         }
-
-        // }
 
     });
 });
