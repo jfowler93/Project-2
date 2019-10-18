@@ -6,8 +6,11 @@ var Sequelize = require("sequelize");
 
 let Op = Sequelize.Op;
 
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
-module.exports = function (app) {
+module.exports = function(app) {
+
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -56,14 +59,18 @@ module.exports = function (app) {
   });
 
   //Search function for movies that might match the search
+
   app.get("/api/movie/:title", function(req, res) {
          //  res.send("parameter: " + req.params.title)
             console.log("route hit");
     var movie = req.params.title
+
     console.log(movie)
     db.movies.findAll({
       where: {
+
           title: { [Op.like]: "%" + movie + "%"}
+
       }
     }).then(function (data) {
       res.json(data);
@@ -73,11 +80,13 @@ module.exports = function (app) {
 
   /*p.post("/api/comment", isAuthenticated, function (req, res) {
     db.discussion.create({
-      username: username,
-      text: text,
-      parent_id: parent_id,
-      art_id: art_id,
-      art_category: art_category
+      username: req.body.username,
+      text: req.body.text,
+      parent_id: req.body.parent_id,
+      art_id: req.body.art_id,
+      art_category: req.body.art_category
+    }).then(function(data){
+      res.json({is_successful: true})
     })
   })*/
 };

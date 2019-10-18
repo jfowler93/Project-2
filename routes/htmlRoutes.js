@@ -65,7 +65,7 @@ module.exports = function (app) {
           art_category: "Movies"
         }
       }).then(function (comments) {
-        res.render("comments", {
+        res.render("moviesLink", {
           content: movie.dataValues,
           comments: comments
         })

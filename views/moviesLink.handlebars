@@ -1,7 +1,71 @@
 <div class="container">
+    <!-- Jumbotron -->
+    <div class="card card-image" style="background-image: url(images/moviePage.jpg);">
+        <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+            <div class="py-5">
+
+                <!-- Content -->
+                <h1 class="h1 orange-text">Movie Talk</h1>
+                    <h4>You've landed on the movie page, you snobby cinema viewer, you.
+                        Search for the movie you hate to love or the one you love to hate and just go at it with other
+                        people in the comment section. It's cathartic. Or something.</h4>
+                    <!--<a class="btn peach-gradient"><i class="fas fa-clone left"></i> View project</a>-->
+
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+
+    <form class="form-inline md-form mr-auto mb-4" id="searchBar">
+        <input class="form-control col-md-8" type="text" placeholder="Search" aria-label="Search">
+        <button id="submitBtn" class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
+    </form>
+    <!-- News jumbotron -->
+    <div class="jumbotron text-center hoverable p-4" id="movie-jumb">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-4 offset-md-1 mx-3 my-3">
+
+                <!-- Featured image -->
+                <div class="view overlay">
+                    <img src="https://mdbootstrap.com/img/Photos/Others/laptop-sm.jpg" class="img-fluid"
+                        alt="Sample image for first version of blog listing">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-7 text-md-left ml-3 mt-3">
+
+                <!-- Excerpt -->
+                {{!-- <a href="#!" class="green-text">
+                    <h6 class="h6 pb-1"><i class="fas fa-desktop pr-1"></i> Work</h6>
+                </a> --}}
+
+                <h4 class="h4 mb-4">Movie Title Here</h4>
+
+                <p class="font-weight-normal">Movie Info Here.</p>
+
+                <!--<a class="btn btn-success">Read more</a>-->
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- News jumbotron -->
 
     <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-12 col-sm-offset-2">
             <p class="cool-font">Enter Your Username</p>
             <input class="form-control" type="text" id="name" placeholder="Username">
             <br>
@@ -14,7 +78,7 @@
     </div>
     <br>
     <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-12 col-sm-offset-2">
             <h2>Comments</h2>
             <hr>
             <div id="comment-area"></div>
@@ -22,9 +86,3 @@
     </div>
 
 </div>
-
-<footer class="page-footer font-small blue">
-    <div class="footer-copyright text-center py-3 primary-color">© 2018 Copyright:
-        <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
-    </div>
-</footer>
