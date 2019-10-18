@@ -21,10 +21,15 @@ $("#submitBtn").on("click", function (e) {
                 var title = $("<h4>" + data[i].title + "</h4>");
                 var genre = $("<p>" + data[i].genre + " </p>");
 
-                movieDiv.append(title, genre);
+                movieDiv.append(title, genre, id);
                 // row.append("<p>" + data[i].genre + " </p>");
 
+                $(title).on("click", function () {
+                    console.log("hooked" + id);
+                    $.get("/movie/" + id);
+                    console.log("sent");
 
+                });
 
                 $(".movieResults").prepend(movieDiv);
 
@@ -34,6 +39,8 @@ $("#submitBtn").on("click", function (e) {
 
     });
 });
+
+
 
 
 
