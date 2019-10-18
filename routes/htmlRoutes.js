@@ -51,7 +51,8 @@ module.exports = function (app) {
   });
 
   app.get("/movie/:title", function (req, res) {
-    let title = req.params.title.split("+").join(" ")
+    let title = req.params.title.split(" ").join("").toLowerCase().split("(")
+         console.log(title);
     db.movies.findOne({
       where: {
         title: title
