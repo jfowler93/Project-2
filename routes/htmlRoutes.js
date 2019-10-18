@@ -50,7 +50,7 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
-  app.get("/movie/:title", function (req, res) {
+  app.get("/movie/:id", function (req, res) {
     let title = req.params.title.split(" ").join("")
          console.log(title);
     db.movies.findOne({
@@ -65,7 +65,7 @@ module.exports = function (app) {
           art_category: "Movies"
         }
       }).then(function (comments) {
-        res.render("moviesLink", {
+        res.render("comment", {
           content: movie.dataValues,
           comments: comments
         })

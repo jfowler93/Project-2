@@ -8,6 +8,9 @@ $("#submit-button").on("click", function (event) {
   var newComment = {
     username: $("#name").val().trim(),
     text: $("#comment-form").val().trim(),
+    parent_id: 0,
+    art_id: $(),
+    art_category: "Movies",
     created_at: moment().format("YYYY-MM-DD HH:mm:ss")
   };
 
@@ -45,6 +48,7 @@ $.get("/api/all", function (data) {
     for (var i = 0; i < data.length; i++) {
 
       var row = $("<div>");
+      row.attr("id", data.id)
       row.addClass("comment");
 
       row.append("<p>" + data[i].author + " commented:  </p>");
