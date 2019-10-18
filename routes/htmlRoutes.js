@@ -51,11 +51,11 @@ module.exports = function (app) {
   });
 
   app.get("/movie/:title", function (req, res) {
-    let title = req.params.title.split(" ").join("")
+    let title = req.params.title
          console.log(title);
     db.movies.findOne({
       where: {
-        title: title
+        title: { [Op.like]: "%" + movie + "%"}
       }
     }).then(function (movie) {
       console.log(movie.dataValues)

@@ -68,9 +68,7 @@ module.exports = function(app) {
     console.log(movie)
     db.movies.findAll({
       where: {
-
           title: { [Op.like]: "%" + movie + "%"}
-
       }
     }).then(function (data) {
       res.json(data);
