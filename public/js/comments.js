@@ -14,7 +14,7 @@ $("#submit-button").on("click", function(event) {
   console.log(newComment);
 
   // Send an AJAX POST-request with jQuery
-  $.post("/api/new", newComment)
+  $.post("/api/comment", newComment)
     // On success, run the following code
     .then(function() {
 
