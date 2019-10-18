@@ -62,4 +62,14 @@ module.exports = function(app) {
       console.log(data)
     })
   })
+
+  app.post("/api/comment", isAuthenticated, function(req, res){
+    db.discussion.create({
+      username: username,
+      text: text,
+      parent_id: parent_id,
+      art_id: art_id,
+      art_category: art_category
+    })
+  })
 };
