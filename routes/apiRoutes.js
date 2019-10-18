@@ -76,7 +76,7 @@ module.exports = function(app) {
     })
   })
 
-  /*p.post("/api/comment", isAuthenticated, function (req, res) {
+  app.post("/api/comment", isAuthenticated, function (req, res) {
     db.discussion.create({
       username: req.body.username,
       text: req.body.text,
@@ -86,5 +86,5 @@ module.exports = function(app) {
     }).then(function(data){
       res.json({is_successful: true})
     })
-  })*/
+  })
 };

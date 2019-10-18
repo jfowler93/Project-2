@@ -14,15 +14,19 @@ $("#submitBtn").on("click", function (e) {
 
             for (var i = 0; i < data.length; i++) {
 
+                var movieDiv = $("<div class='jumbotron text-center hoverable p-4' id='movie-jumb'>");
+
                 var row = $("<div>");
 
-                row.append("<h4>" + data.title + "</h4>");
-                row.append("<p>" + data.genre + " </p>");
+                var title = $("<h4>" + data[i].title + "</h4>");
+                var genre = $("<p>" + data[i].genre + " </p>");
+
+                movieDiv.append(title, genre);
+                // row.append("<p>" + data[i].genre + " </p>");
 
 
 
-
-                $(".mov").prepend(row);
+                $(".movieResults").prepend(movieDiv);
 
             }
 
@@ -30,6 +34,8 @@ $("#submitBtn").on("click", function (e) {
 
     });
 });
+
+
 
 //book clicks
 
