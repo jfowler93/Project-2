@@ -26,8 +26,10 @@ $("#submitBtn").on("click", function (e) {
 
                 $(title).on("click", function () {
                     console.log("hooked" + id);
+                    window.location = "/movie/" + id;
                     $.get("/movie/" + id);
                     console.log("sent");
+
 
                 });
 

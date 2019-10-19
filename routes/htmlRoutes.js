@@ -44,6 +44,12 @@ module.exports = function (app) {
 
   });
 
+  app.get("/movie", function (req, res) {
+
+    res.render("register");
+
+  });
+
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function (req, res) {
@@ -69,7 +75,7 @@ module.exports = function (app) {
           art_category: "Movies"
         }
       }).then(function (comments) {
-        res.render("comment", {
+        res.render("discussion", {
           content: movie.dataValues,
           comments: comments
         })
@@ -80,12 +86,12 @@ module.exports = function (app) {
   app.get("/music/:id", function (req, res) {
     db.music.findOne({
       where: {
-        id: req.params.id
+        id: req.params.name
       }
     }).then(function (music) {
       db.discussion.findAll({
         where: {
-          art_id: req.params.id,
+          art_id: req.params.name,
           art_category: "Music"
         }
       }).then(function (comments) {
