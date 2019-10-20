@@ -40,6 +40,7 @@ $(document).ready(function() {
       userName: text
     })
       //  .then(function(data) {
+        //localStorage.setItem("email", userData.email)
       //   window.location.replace("/");
       //   //If there's an error, handle it by throwing up a bootstrap alert
       //  })

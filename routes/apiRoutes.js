@@ -76,7 +76,7 @@ module.exports = function(app) {
     })
   })
 
-  app.post("/api/comment", isAuthenticated, function (req, res) {
+  app.post("/api/comment", function (req, res) {
     db.discussion.create({
       username: req.body.username,
       text: req.body.text,
@@ -85,6 +85,13 @@ module.exports = function(app) {
       art_category: req.body.art_category
     }).then(function(data){
       res.json({is_successful: true})
+    })
+  })
+
+  app.put("/api/comment", function(req, res){
+    db.discussion.update({text: req.body.text}, {where:{
+      id: req.params.id
+    }
     })
   })
 };
