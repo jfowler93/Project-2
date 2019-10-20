@@ -3,11 +3,13 @@ body {
 background-image: url("../images/colorbg1.png");
 }
 
-.page-footer {
-  position: sticky;
+footer {
   left: 0;
   bottom: 0;
+  margin: 0;
+  padding: 0;
   width: 100%;
+
 }
 
 html,
@@ -19,6 +21,11 @@ body {
     text-align: center;
     overflow-x: hidden;
     
+}
+
+#loginRow {
+  justify-content: center;
+
 }
 
 h3 {
