@@ -29,6 +29,7 @@ passport.use(new LocalStrategy(
         });
       }
       // If none of the above, return the user
+      console.log("checked in")
       return done(null, dbUser);
     });
   }
