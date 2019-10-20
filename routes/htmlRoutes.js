@@ -95,7 +95,7 @@ module.exports = function (app) {
           art_category: "Music"
         }
       }).then(function (comments) {
-        res.render("comments", {
+        res.render("discussion", {
           content: music.dataValues,
           comments: comments
         })
@@ -115,7 +115,7 @@ module.exports = function (app) {
           art_category: "TV"
         }
       }).then(function (comments) {
-        res.render("comments", {
+        res.render("discussion", {
           content: tv.dataValues,
           comments: comments
         })
