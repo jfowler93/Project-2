@@ -31,6 +31,7 @@ $(document).ready(function() {
       password: password
     })
       .then(function() {
+        localStorage.setItem("email", userData.email)
         window.location.replace("/");
         // If there's an error, log the error
       })
