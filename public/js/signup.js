@@ -39,12 +39,12 @@ $(document).ready(function() {
       password: password,
       userName: text
     })
-      // .then(function(data) {
+      //  .then(function(data) {
       //   window.location.replace("/");
-      //   // If there's an error, handle it by throwing up a bootstrap alert
-      // })
-      // .catch(handleLoginErr);
-  }
+      //   //If there's an error, handle it by throwing up a bootstrap alert
+      //  })
+  //      .catch(handleLoginErr);
+      }
 
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
