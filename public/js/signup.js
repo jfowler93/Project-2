@@ -2,7 +2,7 @@ $(document).ready(function() {
   console.log("signup js")
   // Getting references to our form and input
   var signUpForm = $("#createUser");
-  var userNameInput = $("input#formUserName")
+  var userName = $("input#formUserName")
   var emailInput = $("input#formEmail");
   var passwordInput = $("input#formPassword");
 
@@ -11,11 +11,10 @@ $(document).ready(function() {
     console.log("clicked on sign up")
     event.preventDefault();
     var userData = {
-      userName: userNameInput.val().trim(),
+      userName: userName.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
-    console.log("you are : " + userData.userName);
     console.log("your email: " + userData.email);
     console.log("password: accepted");
 
@@ -27,7 +26,6 @@ $(document).ready(function() {
     signUpUser(userData.email, userData.password, userData.userName);
     emailInput.val("");
     passwordInput.val("");
-    userNameInput.val("");
     console.log("passing along");
   });
 
@@ -38,14 +36,14 @@ $(document).ready(function() {
       email: email,
       password: password,
       userName: text
-    })
-      //  .then(function(data) {
-        //localStorage.setItem("email", userData.email)
-      //   window.location.replace("/");
-      //   //If there's an error, handle it by throwing up a bootstrap alert
-      //  })
-  //      .catch(handleLoginErr);
-      }
+    }).then(function(data) {
+      localStorage.setItem("username", text)
+      window.location.replace("/");
+      //If there's an error, handle it by throwing up a bootstrap alert
+      }).catch(function(err){
+        handleLoginErr(err)
+      });
+    }
 
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);

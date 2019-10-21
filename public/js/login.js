@@ -30,8 +30,9 @@ $(document).ready(function() {
       email: email,
       password: password
     })
-      .then(function() {
-        localStorage.setItem("email", userData.email)
+      .then(function(data) {
+        console.log(data)
+        localStorage.setItem("username", data.username)
         window.location.replace("/");
         // If there's an error, log the error
       })
