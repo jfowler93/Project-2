@@ -46,13 +46,15 @@
             <hr>
             <div id="comment-area">
                 {{#each comments}}
-                <div class="row" mark="{{this.id}}" username="{{this.username}}" value="{{this.text}}" id='movie-jumb'>
+                <div class="row"  id='movie-jumb'>
+
                     <div class="col">
-                        <div class="row"><p><h3>{{this.username}} Says:</h3></p></div>
-                        <div class="row"><p><h4>"{{this.text}}"</h4></p></div>
+                        <div class="row"><p><h4>{{this.username}} Says:</h3></p></div>
+                        <div class="row"><p><h3>"{{this.text}}"</h4></p></div>
                         <div class="row">At {{this.createdAt}}</div>
                     </div>
                 </div>
+                <div class="{{this.username}}" id="{{this.id}}" value="{{this.text}}"></div>
                 <br>
                 <br>
                 {{/each}}
