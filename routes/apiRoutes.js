@@ -98,10 +98,10 @@ module.exports = function(app) {
     })
   })
 
-  app.delete("/api/comment", function(req, res){
+  app.delete("/api/comment/:id", function(req, res){
     db.discussion.destroy({
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     }).then(function(data){
       res.json({is_successful: true})
