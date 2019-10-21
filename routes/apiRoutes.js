@@ -91,8 +91,20 @@ module.exports = function(app) {
 
   app.put("/api/comment", function(req, res){
     db.discussion.update({text: req.body.text}, {where:{
-      id: req.params.id
+      id: req.body.id
     }
+    }).then(function(data){
+      res.json({is_successful: true})
+    })
+  })
+
+  app.delete("/api/comment", function(req, res){
+    db.discussion.destroy({
+      where: {
+        id: req.body.id
+      }
+    }).then(function(data){
+      res.json({is_successful: true})
     })
   })
 };

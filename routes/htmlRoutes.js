@@ -1,5 +1,6 @@
 var db = require("../models");
 var path = require("path")
+var axios = require("axios")
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -75,9 +76,19 @@ module.exports = function (app) {
           art_category: "Movies"
         }
       }).then(function (comments) {
-        res.render("discussion", {
-          content: movie.dataValues,
-          comments: comments
+        var splitCommand = movie.title.split(" ");
+        console.log(splitCommand)
+        splitCommand.pop()
+        console.log(splitCommand)
+        var command = splitCommand.join("+")
+        console.log(command)
+        axios.get("http://www.omdbapi.com/?t="+command+"&y=&plot=short&apikey=trilogy").then(function(data){
+          console.log(data.data)
+          res.render("discussion", {
+            content: movie.dataValues,
+            comments: comments,
+            data: data.data
+          })
         })
       })
     })
