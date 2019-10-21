@@ -20,7 +20,11 @@ $("#submitBtn").on("click", function (e) {
 
                 var title = $("<h4>" + data[i].title + "</h4>");
                 var genre = $("<p>" + data[i].genre + " </p>");
+
+                title.addClass("movieSearchBtn")
+
                 movieDiv.attr("value", id)
+
 
                 movieDiv.append(title, genre);
                 // row.append("<p>" + data[i].genre + " </p>");
