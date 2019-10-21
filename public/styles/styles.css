@@ -12,6 +12,11 @@ footer {
 
 }
 
+.movieSearchBtn:hover {
+  cursor: pointer;
+
+}
+
 html,
 body {
     width: 100%;
