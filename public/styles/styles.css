@@ -12,7 +12,7 @@ footer {
 
 }
 
-.movieSearchBtn:hover {
+.movieResults:hover {
   cursor: pointer;
 
 }
@@ -79,6 +79,12 @@ h6 {
 #teamHeader {
   color: rgb(49, 48, 48);
   font-family: 'Neuton', serif;
+
+}
+
+.container {
+  height: 100%;
+  width: 100%;
 
 }
 

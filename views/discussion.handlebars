@@ -34,8 +34,8 @@
 
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-                <label for="exampleFormControlTextarea5">Enter Review Here</label>
-                <textarea class="form-control" id="comment-form" rows="3"></textarea>
+            <label for="exampleFormControlTextarea5">Enter Review Here</label>
+            <textarea class="form-control" id="comment-form" rows="3"></textarea>
             <button class="btn aqua-gradient" id="submit-button">Submit</button>
         </div>
     </div>
@@ -48,8 +48,16 @@
                 {{#each comments}}
                 <div class="row" mark="{{this.id}}" username="{{this.username}}" value="{{this.text}}" id='movie-jumb'>
                     <div class="col">
-                        <div class="row"><p><h3>{{this.username}} Says:</h3></p></div>
-                        <div class="row"><p><h4>"{{this.text}}"</h4></p></div>
+                        <div class="row">
+                            <p>
+                                <h3>{{this.username}} Says:</h3>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <p>
+                                <h4>"{{this.text}}"</h4>
+                            </p>
+                        </div>
                         <div class="row">At {{this.createdAt}}</div>
                     </div>
                 </div>
