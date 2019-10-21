@@ -20,26 +20,27 @@ $("#submitBtn").on("click", function (e) {
 
                 var title = $("<h4>" + data[i].title + "</h4>");
                 var genre = $("<p>" + data[i].genre + " </p>");
+                movieDiv.attr("value", id)
 
-                movieDiv.append(title, genre, id);
+                movieDiv.append(title, genre);
                 // row.append("<p>" + data[i].genre + " </p>");
 
-                $(title).on("click", function () {
-                    console.log("hooked" + id);
-                    window.location = "/movie/" + id;
-                    $.get("/movie/" + id);
-                    console.log("sent");
-
-
-                });
-
-                $(".movieResults").prepend(movieDiv);
+                $(".movieResults").append(movieDiv);
 
             }
 
         }
 
     });
+});
+
+$(document).on("click", "#movie-jumb", function () {
+    console.log("hooked");
+    window.location = "/movie/" + $(this).attr("value");
+    $.get("/movie/" + $(this).attr("value"));
+    console.log("sent");
+
+
 });
 
 

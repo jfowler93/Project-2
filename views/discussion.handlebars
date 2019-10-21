@@ -1,29 +1,60 @@
 <div class="container">
+    <br>
+    <br>
+    <div class="12345" id="{{content.id}}"></div>
+    <div class="row">
+        <div class="col">
+            <img src={{data.Poster}} alt="No Poster Available">
+        </div>
+        <div class="col">
+            <div class="row">
+                <h1>{{content.title}}</h1>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2>Rating: {{data.Rated}}</h2>
+                </div>
+                <div class="col">
+                    <h2>Runtime: {{data.Runtime}}</h2>
+                </div>
+            </div>
+            <div class="row">
 
-    <form class="form-inline md-form mr-auto mb-4" id="searchBar">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button id="submitBtn" class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
-    </form>
-
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+    <br>
+    <br>
+    <br>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-            <p class="cool-font">Enter Your Username</p>
-            <input class="form-control" type="text" id="name" placeholder="Username">
-            <br>
-            <div class="form-group green-border-focus">
-                <label for="exampleFormControlTextarea5">Enter Comment Here</label>
+                <label for="exampleFormControlTextarea5">Enter Review Here</label>
                 <textarea class="form-control" id="comment-form" rows="3"></textarea>
-            </div>
             <button class="btn aqua-gradient" id="submit-button">Submit</button>
         </div>
     </div>
     <br>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-            <h2>Comments</h2>
+            <h2>Reviews</h2>
             <hr>
-            <div id="comment-area"></div>
+            <div id="comment-area">
+                {{#each comments}}
+                <div class="row" mark="{{this.id}}" username="{{this.username}}" value="{{this.text}}" id='movie-jumb'>
+                    <div class="col">
+                        <div class="row"><p><h3>{{this.username}} Says:</h3></p></div>
+                        <div class="row"><p><h4>"{{this.text}}"</h4></p></div>
+                        <div class="row">At {{this.createdAt}}</div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                {{/each}}
+            </div>
         </div>
     </div>
 
 </div>
+
+<script type="text/javascript" src="/js/discussion.js"></script>
