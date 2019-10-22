@@ -2,66 +2,72 @@
 <br>
 
 <div class="container">
-    <br>
-    <br>
-    <div class="12345" id="{{content.id}}"></div>
-    <div class="row">
-        <div class="col">
-            <img src={{data.Poster}} alt="No Poster Available">
-        </div>
-        <div class="col">
-            <div class="row">
-                <h1>{{content.title}}</h1>
+    <div class="discussionContainer">
+
+        <div class="12345" id="{{content.id}}"></div>
+        <div class="row">
+            <div class="col">
+                <img src={{data.Poster}} alt="No Poster Available">
             </div>
-            <div class="row">
-                <div class="col">
-                    <h2>Rating: {{data.Rated}}</h2>
+            <div class="col">
+                <div class="row">
+                    <h1>{{content.title}}</h1>
                 </div>
-                <div class="col">
-                    <h2>Runtime: {{data.Runtime}}</h2>
-                </div>
-            </div>
-            <div class="row">
-
-
-            </div>
-        </div>
-        <div class="col"></div>
-    </div>
-    <br>
-    <br>
-    <br>
-
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-                <label for="exampleFormControlTextarea5">Enter Review Here</label>
-                <textarea class="form-control" id="comment-form" rows="3"></textarea>
-            <button class="btn aqua-gradient" id="submit-button">Submit</button>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-            <h2>Reviews</h2>
-            <hr>
-            <div id="comment-area">
-                {{#each comments}}
-                <div class="row"  id='movie-jumb'>
-
+                <div class="row">
                     <div class="col">
-                        <div class="row"><p><h4>{{this.username}} Says:</h3></p></div>
-                        <div class="row"><p><h3>"{{this.text}}"</h4></p></div>
-                        <div class="row">At {{this.createdAt}}</div>
+                        <h2>Rating: {{data.Rated}}</h2>
+                    </div>
+                    <div class="col">
+                        <h2>Runtime: {{data.Runtime}}</h2>
                     </div>
                 </div>
-                <div class="{{this.username}}" id="{{this.id}}" value="{{this.text}}"></div>
-                <br>
-                <br>
-                {{/each}}
+                <div class="row">
+
+
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <label for="exampleFormControlTextarea5">Enter Review Here</label>
+                <textarea class="form-control" id="comment-form" rows="3"></textarea>
+                <button class="btn aqua-gradient" id="submit-button">Submit</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h2>Reviews</h2>
+                <hr>
+                <div id="comment-area">
+                    {{#each comments}}
+                    <div class="row" id='movie-jumb'>
+
+                        <div class="col">
+                            <div class="row">
+                                <p>
+                                    <h4>{{this.username}} Says:</h4>
+                                </p>
+                            </div>
+                            <div class="row">
+                                <p>
+                                    <h3>"{{this.text}}"</h3>
+                                </p>
+                            </div>
+                            <div class="row">At {{this.createdAt}}</div>
+                        </div>
+                    </div>
+                    <div class="{{this.username}}" id="{{this.id}}" value="{{this.text}}"></div>
+                    <br>
+                    <br>
+                    {{/each}}
+                </div>
             </div>
         </div>
     </div>
-
 </div>
-
-<script type="text/javascript" src="/js/discussion.js"></script>
